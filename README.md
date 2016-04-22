@@ -1,12 +1,12 @@
 # Recipe Finder
 
-##### Android App for Find Recipes with Ingredients On Hand, 4/22/2016
+##### Android App To Find Recipes with Ingredients On Hand, 4/22/2016
 
 #### By Michelle Brecunier
 
 ## Description
 
-This Android application allows users to enter ingredients that they have in their kitchen to get customized recipe results. Currently the recipes are hardcoded in and not specific to a user's search. This app will eventually use the Food2Fork API to search for recipes and provide links to the directions. User will also be able to make a shopping list out of the items they do not currently have.
+This Android application allows users to enter ingredients that they have in their kitchen to get customized recipe results. Currently the recipes are hardcoded in and not specific to a user's search. This app will eventually use the Food2Fork API to search for recipes and provide links to the directions. Users will also be able to make a shopping list out of the items they do not currently have.
 
 ## Setup/Installation Requirements
 You will need the following programs installed on your computer.
