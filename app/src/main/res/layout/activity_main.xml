@@ -13,10 +13,15 @@
         android:src="@drawable/vegetablebasket" />
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        android:id="@+id/textView" />
+        android:text="Find recipes using what you have in your kitchen"
+        android:id="@+id/intoTextView"
+        android:background="@color/colorPrimaryDark"
+        android:textSize="25sp"
+        android:textAlignment="center"
+        android:padding="10dp"
+        android:textColor="@color/colorIcons" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -24,7 +29,11 @@
         android:id="@+id/ingredient1EditText"
         android:hint="@string/enter_hint"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:background="@color/colorIcons"
+        android:textSize="25sp"
+        android:padding="5dp"
+        android:autoText="false" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -32,7 +41,12 @@
         android:id="@+id/ingredient2EditText"
         android:hint="@string/enter_hint"
         android:layout_below="@+id/ingredient1EditText"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:background="@color/colorIcons"
+        android:layout_marginTop="20dp"
+        android:textSize="25sp"
+        android:padding="5dp"
+        android:autoText="false" />
 
     <Button
         android:layout_width="match_parent"
@@ -42,7 +56,10 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:background="@color/colorAccent"
-        android:textColor="@color/colorIcons"/>
+        android:textColor="@color/colorIcons"
+        android:textSize="25sp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp" />
 
 
 </RelativeLayout>
