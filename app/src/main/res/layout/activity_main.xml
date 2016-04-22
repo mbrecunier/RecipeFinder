@@ -15,7 +15,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Find recipes using what you have in your kitchen"
+        android:text="@string/intro_text"
         android:id="@+id/intoTextView"
         android:background="@color/colorPrimaryDark"
         android:textSize="25sp"

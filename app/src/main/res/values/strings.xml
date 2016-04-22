@@ -2,4 +2,5 @@
     <string name="app_name">RecipeFinder</string>
     <string name="enter_hint">Enter an ingredient</string>
     <string name="recipe_results">With %1$s and %2$s you can make:</string>
+    <string name="intro_text">Find recipes using what you have in your kitchen</string>
 </resources>
