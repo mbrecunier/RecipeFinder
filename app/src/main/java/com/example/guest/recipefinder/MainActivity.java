@@ -15,6 +15,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Bind(R.id.ingredient1EditText) EditText mIngredient1EditText;
     @Bind(R.id.ingredient2EditText) EditText mIngredient2EditText;
 
+    //give option to filter vegan/vegetarian etc
+    //give option to add more than two ingredients- recipes using most ingredients are returned first
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
