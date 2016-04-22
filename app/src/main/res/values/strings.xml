@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">RecipeFinder</string>
+    <string name="enter_hint">Enter an ingredient</string>
 </resources>
