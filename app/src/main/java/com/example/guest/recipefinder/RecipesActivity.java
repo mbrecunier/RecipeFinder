@@ -5,21 +5,24 @@ import android.content.res.Resources;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class RecipesActivity extends AppCompatActivity implements View.OnClickListener {
+public class RecipesActivity extends AppCompatActivity {
     @Bind(R.id.searchTextView) TextView mSearchTextView;
     @Bind(R.id.recipeListView) ListView mRecipeListView;
     private String[] recipes = new String[] {"Parmesan Roasted Potatoes", "Crash Hot Potatoes", "Mac and Cheese with Roasted Chicken, Goat Cheese, and Rosemary", "Stovetop Avocado Mac and Cheese", "Jalapeno Popper Grilled Cheese Sandwich" };
 
     //load in recipe information from Food2Fork api based on user search
     //create custom array adapter to display pictures
+    //each recipe will link to a customized RecipeDetailsActivity
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,19 +38,13 @@ public class RecipesActivity extends AppCompatActivity implements View.OnClickLi
 
         ArrayAdapter recipesAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, recipes);
         mRecipeListView.setAdapter(recipesAdapter);
+
+        mRecipeListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> adapterView, View v, int i, long l) {
+                Intent detailsIntent = new Intent(RecipesActivity.this, RecipeDetailsActivity.class);
+                startActivity(detailsIntent);
+            }
+        });
     }
 
-    @Override
-    public void onClick(View v) {
-//        switch (v.getId()) {
-//            case R.id.findRestaurantsButton:
-//                String location = mLocationEditText.getText().toString();
-//                Intent intent = new Intent(MainActivity.this, RestaurantsActivity.class);
-//                intent.putExtra("location", location);
-//                startActivity(intent);
-//                break;
-//            default:
-//                break;
-//        }
-    }
 }
