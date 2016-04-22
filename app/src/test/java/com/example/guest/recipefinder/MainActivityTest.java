@@ -2,7 +2,6 @@ package com.example.guest.recipefinder;
 
 import android.content.Intent;
 import android.os.Build;
-import android.util.Log;
 import android.widget.TextView;
 
 import org.junit.Before;
@@ -19,7 +18,6 @@ import static junit.framework.Assert.assertTrue;
 @RunWith(RobolectricGradleTestRunner.class)
 
 public class MainActivityTest {
-    public static final String TAG = MainActivityTest.class.getSimpleName();
     private MainActivity activity;
 
     @Before
