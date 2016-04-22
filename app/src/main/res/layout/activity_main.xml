@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/intro_text"
-        android:id="@+id/intoTextView"
+        android:id="@+id/introTextView"
         android:background="@color/colorPrimaryDark"
         android:textSize="25sp"
         android:textAlignment="center"
