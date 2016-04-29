@@ -25,8 +25,7 @@
             android:textSize="20dp"
             android:textStyle="bold"
             android:text="Recipe Name"
-            android:textColor="@color/colorPrimary"
-            android:textAlignment="center" />
+            android:textColor="@color/colorPrimary" />
 
     </LinearLayout>
 </LinearLayout>

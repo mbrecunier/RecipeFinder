@@ -57,8 +57,10 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="View directions"
+                    android:text="View Recipe Directions"
                     android:id="@+id/websiteTextView"
+                    android:drawableLeft="@drawable/ic_local_dining_white_18dp"
+                    android:drawablePadding="4dp"
                     android:textColor="@color/colorTextIcons"
                     android:textSize="15sp"
                     android:textStyle="bold"
