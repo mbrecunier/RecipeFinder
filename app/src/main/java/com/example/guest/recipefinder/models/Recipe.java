@@ -1,4 +1,4 @@
-package com.example.guest.recipefinder;
+package com.example.guest.recipefinder.models;
 
 /**
  * Created by Guest on 4/28/16.

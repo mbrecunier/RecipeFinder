@@ -1,15 +1,15 @@
-package com.example.guest.recipefinder;
+package com.example.guest.recipefinder.ui;
 
 import android.content.Intent;
 import android.content.res.Resources;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.example.guest.recipefinder.R;
+import com.example.guest.recipefinder.models.Recipe;
+import com.example.guest.recipefinder.services.FoodService;
 
 import java.io.IOException;
 import java.util.ArrayList;

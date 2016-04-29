@@ -1,4 +1,7 @@
-package com.example.guest.recipefinder;
+package com.example.guest.recipefinder.services;
+
+import com.example.guest.recipefinder.Constants;
+import com.example.guest.recipefinder.models.Recipe;
 
 import org.json.JSONArray;
 import org.json.JSONException;

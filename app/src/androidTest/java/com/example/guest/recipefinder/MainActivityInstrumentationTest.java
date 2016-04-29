@@ -2,6 +2,8 @@ package com.example.guest.recipefinder;
 
 import android.support.test.rule.ActivityTestRule;
 
+import com.example.guest.recipefinder.ui.MainActivity;
+
 import org.junit.Rule;
 import org.junit.Test;
 

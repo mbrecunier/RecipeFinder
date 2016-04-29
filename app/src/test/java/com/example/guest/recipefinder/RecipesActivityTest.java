@@ -3,6 +3,8 @@ package com.example.guest.recipefinder;
 import android.os.Build;
 import android.widget.ListView;
 
+import com.example.guest.recipefinder.ui.RecipesActivity;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

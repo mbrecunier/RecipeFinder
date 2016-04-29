@@ -1,10 +1,12 @@
-package com.example.guest.recipefinder;
+package com.example.guest.recipefinder.ui;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.example.guest.recipefinder.R;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
