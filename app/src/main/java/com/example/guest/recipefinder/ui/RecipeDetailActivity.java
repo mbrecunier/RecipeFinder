@@ -11,7 +11,7 @@ import com.example.guest.recipefinder.R;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class RecipeDetailsActivity extends AppCompatActivity {
+public class RecipeDetailActivity extends AppCompatActivity {
     @Bind(R.id.ingredientListView) ListView mIngredientListView;
     @Bind(R.id.nameTextView) TextView mNameTextView;
     private String recipeName = "Jalapeno Popper Grilled Cheese Sandwich";

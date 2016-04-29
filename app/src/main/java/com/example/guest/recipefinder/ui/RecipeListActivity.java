@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.guest.recipefinder.R;
@@ -23,8 +22,8 @@ import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
 
-public class RecipesActivity extends AppCompatActivity {
-    public static final String TAG = RecipesActivity.class.getSimpleName();
+public class RecipeListActivity extends AppCompatActivity {
+    public static final String TAG = RecipeListActivity.class.getSimpleName();
     @Bind(R.id.searchTextView) TextView mSearchTextView;
     @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
     private RecipeListAdapter mAdapter;
@@ -59,12 +58,12 @@ public class RecipesActivity extends AppCompatActivity {
             public void onResponse(Call call, Response response) {
                 mRecipes = foodService.processResults(response);
 
-                RecipesActivity.this.runOnUiThread(new Runnable() {
+                RecipeListActivity.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
                         mAdapter = new RecipeListAdapter(getApplicationContext(), mRecipes);
                         mRecyclerView.setAdapter(mAdapter);
-                        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(RecipesActivity.this);
+                        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(RecipeListActivity.this);
                         mRecyclerView.setLayoutManager(layoutManager);
                         mRecyclerView.setHasFixedSize(true);
                     }

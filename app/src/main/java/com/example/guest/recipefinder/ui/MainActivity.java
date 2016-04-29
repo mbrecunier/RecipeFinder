@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.findRecipesButton:
                 String ingredient1 = mIngredient1EditText.getText().toString();
                 String ingredient2 = mIngredient2EditText.getText().toString();
-                Intent recipesIntent = new Intent(MainActivity.this, RecipesActivity.class);
+                Intent recipesIntent = new Intent(MainActivity.this, RecipeListActivity.class);
                 recipesIntent.putExtra("ingredient1", ingredient1);
                 recipesIntent.putExtra("ingredient2", ingredient2);
                 startActivity(recipesIntent);
