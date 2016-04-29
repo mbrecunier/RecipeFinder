@@ -29,7 +29,7 @@ public class FoodService {
         String API_KEY = Constants.API_KEY;
         OkHttpClient client = new OkHttpClient.Builder()
                 .build();
-        String ingredients = ingredient1 + "," + ingredient2;
+        String ingredients = (ingredient1 + "," + ingredient2).replaceAll("\\s","");
         HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.BASE_URL).newBuilder();
         urlBuilder.addQueryParameter(Constants.KEY_QUERY_PARAMETER, API_KEY);
         urlBuilder.addQueryParameter(Constants.QUERY_PARAMETER, ingredients);
