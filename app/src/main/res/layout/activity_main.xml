@@ -21,7 +21,7 @@
         android:textSize="25sp"
         android:textAlignment="center"
         android:padding="10dp"
-        android:textColor="@color/colorIcons" />
+        android:textColor="@color/colorTextIcons" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -30,7 +30,7 @@
         android:hint="@string/enter_hint"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:background="@color/colorIcons"
+        android:background="@color/colorTextIcons"
         android:textSize="25sp"
         android:padding="5dp"
         android:autoText="false" />
@@ -42,7 +42,7 @@
         android:hint="@string/enter_hint"
         android:layout_below="@+id/ingredient1EditText"
         android:layout_centerHorizontal="true"
-        android:background="@color/colorIcons"
+        android:background="@color/colorTextIcons"
         android:layout_marginTop="20dp"
         android:textSize="25sp"
         android:padding="5dp"
@@ -56,7 +56,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:background="@color/colorAccent"
-        android:textColor="@color/colorIcons"
+        android:textColor="@color/colorTextIcons"
         android:textSize="25sp"
         android:paddingTop="10dp"
         android:paddingBottom="10dp" />
