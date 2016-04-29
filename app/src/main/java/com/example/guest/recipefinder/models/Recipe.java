@@ -40,6 +40,10 @@ public class Recipe {
         return mRecipeId;
     }
 
+    public void setIngredients(ArrayList<String> ingredients) {
+        this.mIngredients = ingredients;
+    }
+
     public ArrayList<String> getIngredients() {
         return mIngredients;
     }
