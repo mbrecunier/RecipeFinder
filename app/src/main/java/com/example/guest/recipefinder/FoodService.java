@@ -1,5 +1,10 @@
 package com.example.guest.recipefinder;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
 import java.util.ArrayList;
 
 import okhttp3.Call;
@@ -7,6 +12,7 @@ import okhttp3.Callback;
 import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
+import okhttp3.Response;
 
 /**
  * Created by Guest on 4/28/16.
@@ -30,5 +36,32 @@ public class FoodService {
 
         Call call = client.newCall(request);
         call.enqueue(callback);
+    }
+
+    public ArrayList<Recipe> processResults(Response response) {
+        ArrayList<Recipe> recipes = new ArrayList<>();
+
+        try {
+            String jsonData = response.body().string();
+            if (response.isSuccessful()) {
+                JSONObject foodJSON = new JSONObject(jsonData);
+                JSONArray recipesJSON = foodJSON.getJSONArray("recipes");
+                for (int i = 0; i < 15; i++) {
+                    JSONObject recipeJSON = recipesJSON.getJSONObject(i);
+                    String name = recipeJSON.getString("title");
+                    String imageUrl = recipeJSON.getString("image_url");
+                    String sourceUrl = recipeJSON.getString("source_url");
+                    String recipeId = recipeJSON.getString("recipe_id")
+
+                    Recipe recipe = new Recipe (name, imageUrl, sourceUrl, recipeId);
+                    recipes.add(recipe);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return recipes;
     }
 }
