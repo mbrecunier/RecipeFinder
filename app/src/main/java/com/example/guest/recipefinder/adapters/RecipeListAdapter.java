@@ -68,7 +68,7 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
                     intent.putExtra("recipes", Parcels.wrap(mRecipes));
                     mContext.startActivity(intent);
                 }
-            })
+            });
         }
 
         public void bindRecipe(Recipe recipe) {
