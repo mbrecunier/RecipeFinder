@@ -4,10 +4,13 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.guest.recipefinder.R;
+import com.example.guest.recipefinder.adapters.RecipeListAdapter;
 import com.example.guest.recipefinder.models.Recipe;
 import com.example.guest.recipefinder.services.FoodService;
 
@@ -21,11 +24,12 @@ import okhttp3.Callback;
 import okhttp3.Response;
 
 public class RecipesActivity extends AppCompatActivity {
-    public ArrayList<Recipe> mRecipes = new ArrayList<>();
     public static final String TAG = RecipesActivity.class.getSimpleName();
-    private RecipeListAdapter mAdapter;
     @Bind(R.id.searchTextView) TextView mSearchTextView;
-    @Bind(R.id.recipeListView) ListView mRecipeListView;
+    @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
+    private RecipeListAdapter mAdapter;
+
+    public ArrayList<Recipe> mRecipes = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +42,7 @@ public class RecipesActivity extends AppCompatActivity {
         String ingredient1 = recipesIntent.getStringExtra("ingredient1");
         String ingredient2 = recipesIntent.getStringExtra("ingredient2");
         mSearchTextView.setText(String.format(res.getString(R.string.recipe_results), ingredient1, ingredient2));
+
         getRecipes(ingredient1, ingredient1);
     }
 

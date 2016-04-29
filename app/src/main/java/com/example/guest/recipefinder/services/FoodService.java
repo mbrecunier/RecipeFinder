@@ -54,7 +54,7 @@ public class FoodService {
                     String name = recipeJSON.getString("title");
                     String imageUrl = recipeJSON.getString("image_url");
                     String sourceUrl = recipeJSON.getString("source_url");
-                    String recipeId = recipeJSON.getString("recipe_id")
+                    String recipeId = recipeJSON.getString("recipe_id");
 
                     Recipe recipe = new Recipe (name, imageUrl, sourceUrl, recipeId);
                     recipes.add(recipe);
