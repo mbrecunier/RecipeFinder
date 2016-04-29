@@ -2,6 +2,8 @@ package com.example.guest.recipefinder.models;
 
 import org.parceler.Parcel;
 
+import java.util.ArrayList;
+
 /**
  * Created by Guest on 4/28/16.
  */
@@ -11,6 +13,7 @@ public class Recipe {
     private String mImageUrl;
     private String mSourceUrl;
     private String mRecipeId;
+    private ArrayList<String> mIngredients;
 
     public Recipe() {};
 
@@ -35,5 +38,9 @@ public class Recipe {
 
     public String getRecipeId() {
         return mRecipeId;
+    }
+
+    public ArrayList<String> getIngredients() {
+        return mIngredients;
     }
 }
