@@ -58,6 +58,7 @@ public class RecipeListActivity extends AppCompatActivity {
             public void onResponse(Call call, Response response) {
                 mRecipes = foodService.processResults(response);
 
+
                 RecipeListActivity.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
@@ -72,5 +73,24 @@ public class RecipeListActivity extends AppCompatActivity {
             }
         });
     }
+
+//    private void getIngredients(ArrayList<Recipe> recipes) {
+//        final FoodService foodService = new FoodService();
+//
+//        for (int j = 0; j < recipes.size(); j++) {
+//            String recipeId = recipes[j-1].getRecipeId();
+//            foodService.getRecipeIngredients(recipeId, new Callback() {
+//                @Override
+//                public void onFailure(Call call, IOException e) {
+//                    e.printStackTrace();
+//                }
+//
+//                @Override
+//                public void onResponse(Call call, Response response) {
+//                    return foodService.processResults(response);
+//                }
+//            });
+//        }
+//    }
 
 }

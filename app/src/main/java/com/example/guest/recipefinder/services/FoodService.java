@@ -89,7 +89,7 @@ public class FoodService {
             if (response.isSuccessful()) {
                 JSONObject foodJSON = new JSONObject(jsonData);
                 JSONArray recipesJSON = foodJSON.getJSONArray("recipes");
-                for (int i = 0; i < 15; i++) {
+                for (int i = 0; i < 10; i++) {
                     JSONObject recipeJSON = recipesJSON.getJSONObject(i);
                     String name = recipeJSON.getString("title");
                     String imageUrl = recipeJSON.getString("image_url");
