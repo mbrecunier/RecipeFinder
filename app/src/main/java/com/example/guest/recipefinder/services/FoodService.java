@@ -1,5 +1,7 @@
 package com.example.guest.recipefinder.services;
 
+import android.util.Log;
+
 import com.example.guest.recipefinder.Constants;
 import com.example.guest.recipefinder.models.Recipe;
 
@@ -21,17 +23,18 @@ import okhttp3.Response;
  * Created by Guest on 4/28/16.
  */
 public class FoodService {
+    public static final String TAG = FoodService.class.getSimpleName();
 
     public static void findRecipes(String ingredient1, String ingredient2, Callback callback) {
         String API_KEY = Constants.API_KEY;
         OkHttpClient client = new OkHttpClient.Builder()
                 .build();
-
+        String ingredients = ingredient1 + "," + ingredient2;
         HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.BASE_URL).newBuilder();
         urlBuilder.addQueryParameter(Constants.KEY_QUERY_PARAMETER, API_KEY);
-        urlBuilder.addQueryParameter(Constants.QUERY_PARAMETER, ingredient1);
-        urlBuilder.addQueryParameter(Constants.SECOND_QUERY_PARAMETER, ingredient2);
+        urlBuilder.addQueryParameter(Constants.QUERY_PARAMETER, ingredients);
         String url = urlBuilder.build().toString();
+        Log.v(TAG, url);
 
         Request request = new Request.Builder()
                 .url(url)

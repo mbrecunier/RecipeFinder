@@ -43,7 +43,7 @@ public class RecipesActivity extends AppCompatActivity {
         String ingredient2 = recipesIntent.getStringExtra("ingredient2");
         mSearchTextView.setText(String.format(res.getString(R.string.recipe_results), ingredient1, ingredient2));
 
-        getRecipes(ingredient1, ingredient1);
+        getRecipes(ingredient1, ingredient2);
     }
 
     private void getRecipes(String ingredient1, String ingredient2) {
