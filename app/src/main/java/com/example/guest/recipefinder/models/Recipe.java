@@ -12,7 +12,7 @@ public class Recipe {
     private String mName;
     private String mImageUrl;
     private String mSourceUrl;
-    private String mIngredients;
+    private String[] mIngredients;
 
     public Recipe() {};
 
@@ -20,7 +20,7 @@ public class Recipe {
         this.mName = name;
         this.mImageUrl = imageUrl;
         this.mSourceUrl = sourceUrl;
-        this.mIngredients = ingredients;
+        this.mIngredients = ingredients.split(",");
     }
 
     public String getName() {
@@ -35,7 +35,7 @@ public class Recipe {
         return mSourceUrl;
     }
 
-    public String getIngredients() {
+    public String[] getIngredients() {
         return mIngredients;
     }
 }
