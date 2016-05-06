@@ -9,18 +9,9 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".ui.RecipeListActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Here are your recipes:"
-        android:id="@+id/searchTextView"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/searchTextView"
         android:id="@+id/recyclerView"/>
 
 </RelativeLayout>

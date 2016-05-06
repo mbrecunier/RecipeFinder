@@ -24,7 +24,6 @@ import okhttp3.Response;
 
 public class RecipeListActivity extends AppCompatActivity {
     public static final String TAG = RecipeListActivity.class.getSimpleName();
-    @Bind(R.id.searchTextView) TextView mSearchTextView;
     @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
     private RecipeListAdapter mAdapter;
 
@@ -36,11 +35,9 @@ public class RecipeListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_recipes);
         ButterKnife.bind(this);
 
-        Resources res = getResources();
         Intent recipesIntent = getIntent();
         String ingredient1 = recipesIntent.getStringExtra("ingredient1");
         String ingredient2 = recipesIntent.getStringExtra("ingredient2");
-        mSearchTextView.setText(String.format(res.getString(R.string.recipe_results), ingredient1, ingredient2));
 
         getRecipes(ingredient1, ingredient2);
     }
@@ -74,23 +71,5 @@ public class RecipeListActivity extends AppCompatActivity {
         });
     }
 
-//    private void getIngredients(ArrayList<Recipe> recipes) {
-//        final FoodService foodService = new FoodService();
-//
-//        for (int j = 0; j < recipes.size(); j++) {
-//            String recipeId = recipes[j-1].getRecipeId();
-//            foodService.getRecipeIngredients(recipeId, new Callback() {
-//                @Override
-//                public void onFailure(Call call, IOException e) {
-//                    e.printStackTrace();
-//                }
-//
-//                @Override
-//                public void onResponse(Call call, Response response) {
-//                    return foodService.processResults(response);
-//                }
-//            });
-//        }
-//    }
 
 }
