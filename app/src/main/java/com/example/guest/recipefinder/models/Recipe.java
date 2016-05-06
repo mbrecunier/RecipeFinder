@@ -9,33 +9,33 @@ import java.util.ArrayList;
  */
 @Parcel
 public class Recipe {
-    private String mName;
-    private String mImageUrl;
-    private String mSourceUrl;
-    private String[] mIngredients;
+    private String name;
+    private String imageUrl;
+    private String sourceUrl;
+    private String[] ingredients;
 
     public Recipe() {};
 
     public Recipe(String name, String imageUrl, String sourceUrl, String ingredients) {
-        this.mName = name;
-        this.mImageUrl = imageUrl;
-        this.mSourceUrl = sourceUrl;
-        this.mIngredients = ingredients.split(",");
+        this.name = name;
+        this.imageUrl = imageUrl;
+        this.sourceUrl = sourceUrl;
+        this.ingredients = ingredients.split(",");
     }
 
     public String getName() {
-        return mName;
+        return name;
     }
 
     public String getImageUrl() {
-        return mImageUrl;
+        return imageUrl;
     }
 
     public String getSourceUrl() {
-        return mSourceUrl;
+        return sourceUrl;
     }
 
     public String[] getIngredients() {
-        return mIngredients;
+        return ingredients;
     }
 }
