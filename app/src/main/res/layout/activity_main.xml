@@ -61,13 +61,29 @@
         android:layout_height="wrap_content"
         android:text="Find Recipes"
         android:id="@+id/findRecipesButton"
-        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
+        android:layout_above="@id/savedRecipesButton"
+        android:visibility="visible"
         android:background="@color/colorAccent"
         android:textColor="@color/colorTextIcons"
-        android:textSize="25sp"
+        android:textSize="20sp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:layout_marginBottom="10dp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="My Favorite Recipes"
+        android:id="@+id/savedRecipesButton"
+        android:background="@color/colorAccent"
+        android:textColor="@color/colorTextIcons"
+        android:visibility="visible"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textSize="20sp"
         android:paddingTop="10dp"
         android:paddingBottom="10dp" />
-
 
 </RelativeLayout>

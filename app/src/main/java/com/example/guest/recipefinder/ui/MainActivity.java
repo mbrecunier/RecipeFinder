@@ -16,9 +16,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Bind(R.id.findRecipesButton) Button mFindRecipesButton;
     @Bind(R.id.ingredient1EditText) EditText mIngredient1EditText;
     @Bind(R.id.ingredient2EditText) EditText mIngredient2EditText;
-
-    //give option to filter vegan/vegetarian etc
-    //give option to add more than two ingredients- recipes using most ingredients are returned first
+    @Bind(R.id.savedRecipesButton) Button mSavedRecipesButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +25,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ButterKnife.bind(this);
 
         mFindRecipesButton.setOnClickListener(this);
+        mSavedRecipesButton.setOnClickListener(this);
     }
 
     @Override
@@ -39,6 +38,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 recipesIntent.putExtra("ingredient1", ingredient1);
                 recipesIntent.putExtra("ingredient2", ingredient2);
                 startActivity(recipesIntent);
+                break;
+            case R.id.savedRecipesButton:
+                Intent intent = new Intent(MainActivity.this, SavedRecipeListActivity.class);
+                startActivity(intent);
                 break;
             default:
                 break;

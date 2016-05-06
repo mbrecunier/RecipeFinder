@@ -24,7 +24,7 @@ import butterknife.ButterKnife;
 /**
  * Created by Guest on 4/29/16.
  */
-public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.RecipeViewHolder> {
+public class RecipeListAdapter extends RecyclerView.Adapter<RecipeViewHolder> {
     private ArrayList<Recipe> mRecipes = new ArrayList<>();
     private Context mContext;
 
@@ -34,14 +34,14 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
     }
 
     @Override
-    public RecipeListAdapter.RecipeViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public RecipeViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recipe_list_item, parent, false);
         RecipeViewHolder viewHolder = new RecipeViewHolder(view);
         return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(RecipeListAdapter.RecipeViewHolder holder, int position) {
+    public void onBindViewHolder(RecipeViewHolder holder, int position) {
         holder.bindRecipe(mRecipes.get(position));
     }
 
@@ -50,31 +50,6 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
         return mRecipes.size();
     }
 
-    public class RecipeViewHolder extends RecyclerView.ViewHolder {
-        @Bind(R.id.recipeImageView) ImageView mRecipeImageView;
-        @Bind(R.id.recipeNameTextView) TextView mRecipeNameTextView;
-        private Context mContext;
 
-        public RecipeViewHolder(View itemView) {
-            super(itemView);
-            ButterKnife.bind(this, itemView);
-            mContext = itemView.getContext();
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    int itemPosition = getLayoutPosition();
-                    Intent intent = new Intent(mContext, RecipeDetailActivity.class);
-                    intent.putExtra("position", itemPosition + "");
-                    intent.putExtra("recipes", Parcels.wrap(mRecipes));
-                    mContext.startActivity(intent);
-                }
-            });
-        }
-
-        public void bindRecipe(Recipe recipe) {
-            Picasso.with(mContext).load(recipe.getImageUrl()).into(mRecipeImageView);
-            mRecipeNameTextView.setText(recipe.getName());
-        }
-    }
 
 }
