@@ -11,6 +11,7 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -59,11 +60,13 @@ public class FoodService {
                     JSONObject recipeArrayJSON = recipesJSON.getJSONObject(i);
                     JSONObject recipeJSON = recipeArrayJSON.getJSONObject("recipe");
                     String name = recipeJSON.getString("label");
-                    Log.d(TAG, name);
                     String imageUrl = recipeJSON.getString("image");
                     String sourceUrl = recipeJSON.getString("url");
+                    String ingredients = recipeJSON.getJSONArray("ingredientLines").toString();
 
-                    Recipe recipe = new Recipe (name, imageUrl, sourceUrl);
+                    Log.d(TAG, ingredients);
+
+                    Recipe recipe = new Recipe (name, imageUrl, sourceUrl, ingredients);
                     recipes.add(recipe);
                 }
             }

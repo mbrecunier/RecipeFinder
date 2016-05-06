@@ -12,14 +12,15 @@ public class Recipe {
     private String mName;
     private String mImageUrl;
     private String mSourceUrl;
-    private ArrayList<String> mIngredients;
+    private String mIngredients;
 
     public Recipe() {};
 
-    public Recipe(String name, String imageUrl, String sourceUrl) {
+    public Recipe(String name, String imageUrl, String sourceUrl, String ingredients) {
         this.mName = name;
         this.mImageUrl = imageUrl;
         this.mSourceUrl = sourceUrl;
+        this.mIngredients = ingredients;
     }
 
     public String getName() {
@@ -34,11 +35,7 @@ public class Recipe {
         return mSourceUrl;
     }
 
-    public void setIngredients(ArrayList<String> ingredients) {
-        this.mIngredients = ingredients;
-    }
-
-    public ArrayList<String> getIngredients() {
+    public String getIngredients() {
         return mIngredients;
     }
 }
