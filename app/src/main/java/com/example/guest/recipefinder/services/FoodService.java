@@ -56,15 +56,15 @@ public class FoodService {
                 JSONObject returnJSON = new JSONObject(jsonData);
                 JSONArray recipesJSON = returnJSON.getJSONArray("hits");
                 for (int i = 0; i < 10; i++) {
-                    JSONArray recipeArrayJSON = recipesJSON.getJSONArray(i);
-                    Log.d(TAG, recipeArrayJSON.toString());
-//                    String name = recipeJSON.getString("label");
-//                    Log.d(TAG, name);
-//                    String imageUrl = recipeJSON.getJSONObject("image").toString();
-//                    String sourceUrl = recipeJSON.getJSONObject("url").toString();
-//
-//                    Recipe recipe = new Recipe (name, imageUrl, sourceUrl);
-//                    recipes.add(recipe);
+                    JSONObject recipeArrayJSON = recipesJSON.getJSONObject(i);
+                    JSONObject recipeJSON = recipeArrayJSON.getJSONObject("recipe");
+                    String name = recipeJSON.getString("label");
+                    Log.d(TAG, name);
+                    String imageUrl = recipeJSON.getString("image");
+                    String sourceUrl = recipeJSON.getString("url");
+
+                    Recipe recipe = new Recipe (name, imageUrl, sourceUrl);
+                    recipes.add(recipe);
                 }
             }
         } catch (IOException e) {
