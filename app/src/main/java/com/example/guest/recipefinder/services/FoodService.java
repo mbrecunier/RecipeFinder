@@ -26,13 +26,15 @@ public class FoodService {
     public static final String TAG = FoodService.class.getSimpleName();
 
     public static void findRecipes(String ingredient1, String ingredient2, Callback callback) {
-        String API_KEY = Constants.API_KEY;
+        String APP_KEY = Constants.APP_KEY;
+        String APP_ID = Constants.APP_ID;
         OkHttpClient client = new OkHttpClient.Builder()
                 .build();
         String ingredients = (ingredient1 + "," + ingredient2).replaceAll("\\s","");
         HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.BASE_URL).newBuilder();
-        urlBuilder.addQueryParameter(Constants.KEY_QUERY_PARAMETER, API_KEY);
         urlBuilder.addQueryParameter(Constants.QUERY_PARAMETER, ingredients);
+        urlBuilder.addQueryParameter(Constants.APP_QUERY_PARAMETER, APP_ID);
+        urlBuilder.addQueryParameter(Constants.KEY_QUERY_PARAMETER, APP_KEY);
         String url = urlBuilder.build().toString();
         Log.v(TAG, url);
 
@@ -44,42 +46,6 @@ public class FoodService {
         call.enqueue(callback);
     }
 
-    public static void getRecipeIngredients(String recipeId, Callback callback) {
-        String API_KEY = Constants.API_KEY;
-        OkHttpClient client = new OkHttpClient.Builder()
-                .build();
-        HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.RECIPE_BASE_URL).newBuilder();
-        urlBuilder.addQueryParameter(Constants.KEY_QUERY_PARAMETER, API_KEY);
-        urlBuilder.addQueryParameter(Constants.RECIPE_QUERY_PARAMETER, recipeId);
-        String url = urlBuilder.build().toString();
-
-        Request request = new Request.Builder()
-                .url(url)
-                .build();
-        Call call = client.newCall(request);
-        call.enqueue(callback);
-    }
-
-    public ArrayList<String> processIngredientResults(Response response) {
-        ArrayList<String> ingredients = new ArrayList<>();
-
-        try {
-            String jsonData = response.body().string();
-            if (response.isSuccessful()) {
-                JSONObject recipeJSON = new JSONObject(jsonData);
-                JSONArray ingredientsJSON = recipeJSON.getJSONArray("ingredients");
-                for (int i = 0; i < ingredientsJSON.length(); i++) {
-                    String ingredient = ingredientsJSON.getString(i);
-                    ingredients.add(ingredient);
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        return ingredients;
-    }
 
     public ArrayList<Recipe> processResults(Response response) {
         ArrayList<Recipe> recipes = new ArrayList<>();
@@ -87,18 +53,18 @@ public class FoodService {
         try {
             String jsonData = response.body().string();
             if (response.isSuccessful()) {
-                JSONObject foodJSON = new JSONObject(jsonData);
-                JSONArray recipesJSON = foodJSON.getJSONArray("recipes");
+                JSONObject returnJSON = new JSONObject(jsonData);
+                JSONArray recipesJSON = returnJSON.getJSONArray("hits");
                 for (int i = 0; i < 10; i++) {
-                    JSONObject recipeJSON = recipesJSON.getJSONObject(i);
-                    String name = recipeJSON.getString("title");
-                    String imageUrl = recipeJSON.getString("image_url");
-                    String sourceUrl = recipeJSON.getString("source_url");
-                    String recipeId = recipeJSON.getString("recipe_id");
-                    Log.v(TAG, recipeId);
-
-                    Recipe recipe = new Recipe (name, imageUrl, sourceUrl, recipeId);
-                    recipes.add(recipe);
+                    JSONArray recipeArrayJSON = recipesJSON.getJSONArray(i);
+                    Log.d(TAG, recipeArrayJSON.toString());
+//                    String name = recipeJSON.getString("label");
+//                    Log.d(TAG, name);
+//                    String imageUrl = recipeJSON.getJSONObject("image").toString();
+//                    String sourceUrl = recipeJSON.getJSONObject("url").toString();
+//
+//                    Recipe recipe = new Recipe (name, imageUrl, sourceUrl);
+//                    recipes.add(recipe);
                 }
             }
         } catch (IOException e) {
