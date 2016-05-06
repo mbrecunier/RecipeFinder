@@ -2,8 +2,10 @@ package com.example.guest.recipefinder.ui;
 
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,6 +38,7 @@ public class RecipeDetailFragment extends Fragment implements View.OnClickListen
     @Bind(R.id.websiteTextView) TextView mWebsiteLabel;
     @Bind(R.id.ingredientListView) ListView mIngredientList;
     @Bind(R.id.saveRecipeButton) Button mSaveRecipeButton;
+    private SharedPreferences mSharedPreferences;
 
     private Recipe mRecipe;
 
@@ -51,6 +54,7 @@ public class RecipeDetailFragment extends Fragment implements View.OnClickListen
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mRecipe = Parcels.unwrap(getArguments().getParcelable("recipe"));
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
     }
 
     @Override
@@ -76,8 +80,12 @@ public class RecipeDetailFragment extends Fragment implements View.OnClickListen
             startActivity(webIntent);
         }
         if (v == mSaveRecipeButton) {
-            Firebase ref = new Firebase(Constants.FIREBASE_URL_RECIPES);
-            ref.push().setValue(mRecipe);
+            String userUid = mSharedPreferences.getString(Constants.KEY_UID, null);
+            Firebase userRecipesFirebaseRef = new Firebase(Constants.FIREBASE_URL_RECIPES).child(userUid);
+            Firebase pushRef = userRecipesFirebaseRef.push();
+            String recipePushId = pushRef.getKey();
+            mRecipe.setPushId(recipePushId);
+            pushRef.setValue(mRecipe);
             Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
         }
     }

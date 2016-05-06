@@ -1,5 +1,7 @@
 package com.example.guest.recipefinder.ui;
 
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -19,6 +21,7 @@ public class SavedRecipeListActivity extends AppCompatActivity {
     private Query mQuery;
     private Firebase mFirebaseRecipesRef;
     private FirebaseRecipeListAdapter mAdapter;
+    private SharedPreferences mSharedPreferences;
 
     @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
 
@@ -29,13 +32,15 @@ public class SavedRecipeListActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         mFirebaseRecipesRef = new Firebase(Constants.FIREBASE_URL_RECIPES);
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
         setUpFirebaseQuery();
         setUpRecyclerView();
     }
 
     private void setUpFirebaseQuery() {
-        String location = mFirebaseRecipesRef.toString();
+        String userUid = mSharedPreferences.getString(Constants.KEY_UID, null);
+        String location = mFirebaseRecipesRef.child(userUid).toString();
         mQuery = new Firebase(location);
     }
 

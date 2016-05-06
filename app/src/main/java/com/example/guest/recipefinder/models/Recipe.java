@@ -13,6 +13,7 @@ public class Recipe {
     private String imageUrl;
     private String sourceUrl;
     private String[] ingredients;
+    private String pushId;
 
     public Recipe() {};
 
@@ -37,5 +38,13 @@ public class Recipe {
 
     public String[] getIngredients() {
         return ingredients;
+    }
+
+    public String getPushId() {
+        return pushId;
+    }
+
+    public void setPushId(String pushId) {
+        this.pushId = pushId;
     }
 }

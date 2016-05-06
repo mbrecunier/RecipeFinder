@@ -73,6 +73,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             public void onAuthenticated(AuthData authData) {
                 if (authData != null) {
                     String userUid = authData.getUid();
+                    mSharedPreferencesEditor.putString(Constants.KEY_UID, userUid).apply();
                     String userInfo = authData.toString();
                     Log.d(TAG, "Currently logged in: " + userInfo);
                     mSharedPreferencesEditor.putString(Constants.KEY_UID, userUid).apply();
