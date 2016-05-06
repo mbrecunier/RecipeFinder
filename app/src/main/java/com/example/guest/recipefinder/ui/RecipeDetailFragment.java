@@ -8,7 +8,10 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.guest.recipefinder.R;
@@ -27,6 +30,7 @@ public class RecipeDetailFragment extends Fragment implements View.OnClickListen
     @Bind(R.id.recipeImageView) ImageView mImageLabel;
     @Bind(R.id.recipeNameTextView) TextView mNameLabel;
     @Bind(R.id.websiteTextView) TextView mWebsiteLabel;
+    @Bind(R.id.ingredientListView) ListView mIngredientList;
 
     private Recipe mRecipe;
 
@@ -50,6 +54,8 @@ public class RecipeDetailFragment extends Fragment implements View.OnClickListen
         View view = inflater.inflate(R.layout.fragment_recipe_detail, container, false);
         ButterKnife.bind(this, view);
 
+        ArrayAdapter ingredientAdapter = new ArrayAdapter(this.getActivity(), android.R.layout.simple_list_item_1, mRecipe.getIngredients());
+        mIngredientList.setAdapter(ingredientAdapter);
         Picasso.with(view.getContext()).load(mRecipe.getImageUrl()).into(mImageLabel);
         mNameLabel.setText(mRecipe.getName());
         mWebsiteLabel.setOnClickListener(this);
