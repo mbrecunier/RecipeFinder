@@ -62,7 +62,7 @@
         android:text="Find Recipes"
         android:id="@+id/findRecipesButton"
         android:layout_centerHorizontal="true"
-        android:layout_above="@id/savedRecipesButton"
+        android:layout_above="@+id/savedRecipesButton"
         android:visibility="visible"
         android:background="@color/colorAccent"
         android:textColor="@color/colorTextIcons"
