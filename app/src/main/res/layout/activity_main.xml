@@ -23,14 +23,6 @@
         android:padding="10dp"
         android:textColor="@color/colorTextIcons" />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/attributionImageView"
-        android:layout_below="@id/introTextView"
-        android:scaleType="centerCrop"
-        android:src="@drawable/poweredbyedamam" />
-
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
