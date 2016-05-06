@@ -77,7 +77,15 @@
 
             </LinearLayout>
 
-
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Add to Favorites"
+                android:id="@+id/saveRecipeButton"
+                android:layout_alignParentBottom="true"
+                android:background="@color/colorAccent"
+                android:textColor="@color/colorTextIcons"
+                android:textSize="15sp" />
         </RelativeLayout>
     </LinearLayout>
 </FrameLayout>

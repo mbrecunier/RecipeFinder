@@ -10,12 +10,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.guest.recipefinder.Constants;
 import com.example.guest.recipefinder.R;
 import com.example.guest.recipefinder.models.Recipe;
+import com.firebase.client.Firebase;
 import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
@@ -31,6 +35,7 @@ public class RecipeDetailFragment extends Fragment implements View.OnClickListen
     @Bind(R.id.recipeNameTextView) TextView mNameLabel;
     @Bind(R.id.websiteTextView) TextView mWebsiteLabel;
     @Bind(R.id.ingredientListView) ListView mIngredientList;
+    @Bind(R.id.saveRecipeButton) Button mSaveRecipeButton;
 
     private Recipe mRecipe;
 
@@ -59,6 +64,7 @@ public class RecipeDetailFragment extends Fragment implements View.OnClickListen
         Picasso.with(view.getContext()).load(mRecipe.getImageUrl()).into(mImageLabel);
         mNameLabel.setText(mRecipe.getName());
         mWebsiteLabel.setOnClickListener(this);
+        mSaveRecipeButton.setOnClickListener(this);
 
         return view;
     }
@@ -68,6 +74,11 @@ public class RecipeDetailFragment extends Fragment implements View.OnClickListen
         if (v == mWebsiteLabel) {
             Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(mRecipe.getSourceUrl()));
             startActivity(webIntent);
+        }
+        if (v == mSaveRecipeButton) {
+            Firebase ref = new Firebase(Constants.FIREBASE_URL_RECIPES);
+            ref.push().setValue(mRecipe);
+            Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
         }
     }
 
