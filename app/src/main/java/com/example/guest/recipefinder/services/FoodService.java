@@ -64,8 +64,6 @@ public class FoodService {
                     String sourceUrl = recipeJSON.getString("url");
                     String ingredients = recipeJSON.getJSONArray("ingredientLines").toString();
 
-                    Log.d(TAG, ingredients);
-
                     Recipe recipe = new Recipe (name, imageUrl, sourceUrl, ingredients);
                     recipes.add(recipe);
                 }
