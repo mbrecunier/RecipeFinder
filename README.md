@@ -6,7 +6,7 @@
 
 ## Description
 
-This Android application allows users to enter ingredients that they have in their kitchen to get customized recipe results. Currently the recipes are hardcoded in and not specific to a user's search. This app will eventually use the Food2Fork API to search for recipes and provide links to the directions. Users will also be able to make a shopping list out of the items they do not currently have.
+This Android application allows users to enter ingredients they have in their kitchen to get customized recipe results using the Edamam API. Users can create an account to save their favorite recipes for later reference.
 
 ## Setup/Installation Requirements
 You will need the following programs installed on your computer.
@@ -30,7 +30,7 @@ You will need the following programs installed on your computer.
 
 ## Technologies Used
 
-Java, Android Studio, testing with Robolectric and Espresso
+Java, Android Studio, testing with Robolectric and Espresso, Firebase, Edamam API
 
 ### Legal
 
