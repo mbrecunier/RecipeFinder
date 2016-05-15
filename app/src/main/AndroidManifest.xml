@@ -27,7 +27,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.BaseActivity"></activity>
+        <activity android:name=".ui.BaseActivity" />
+        <activity android:name=".ui.ShoppingListActivity"></activity>
     </application>
 
 </manifest>

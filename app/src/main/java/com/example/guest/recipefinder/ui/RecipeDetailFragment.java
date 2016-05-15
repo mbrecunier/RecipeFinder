@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,16 +30,14 @@ import org.parceler.Parcels;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-/**
- * A simple {@link Fragment} subclass.
- */
-public class RecipeDetailFragment extends Fragment implements View.OnClickListener {
+public class RecipeDetailFragment extends Fragment implements View.OnClickListener, AdapterView.OnItemClickListener  {
     @Bind(R.id.recipeImageView) ImageView mImageLabel;
     @Bind(R.id.recipeNameTextView) TextView mNameLabel;
     @Bind(R.id.websiteTextView) TextView mWebsiteLabel;
     @Bind(R.id.ingredientListView) ListView mIngredientList;
     @Bind(R.id.saveRecipeButton) Button mSaveRecipeButton;
     private SharedPreferences mSharedPreferences;
+
 
     private Recipe mRecipe;
 
@@ -65,12 +64,18 @@ public class RecipeDetailFragment extends Fragment implements View.OnClickListen
 
         ArrayAdapter ingredientAdapter = new ArrayAdapter(this.getActivity(), android.R.layout.simple_list_item_1, mRecipe.getIngredients());
         mIngredientList.setAdapter(ingredientAdapter);
+        mIngredientList.setOnItemClickListener(this);
         Picasso.with(view.getContext()).load(mRecipe.getImageUrl()).into(mImageLabel);
         mNameLabel.setText(mRecipe.getName());
         mWebsiteLabel.setOnClickListener(this);
         mSaveRecipeButton.setOnClickListener(this);
 
         return view;
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+        Log.d("CLICKED ITEM", mRecipe.getIngredients()[i]);
     }
 
     @Override

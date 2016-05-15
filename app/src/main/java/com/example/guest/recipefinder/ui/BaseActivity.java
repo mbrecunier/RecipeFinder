@@ -42,8 +42,8 @@ public class BaseActivity extends AppCompatActivity {
             startActivity(intent);
         }
         if (id == R.id.action_shopping_list) {
-//            Intent intent = new Intent(this, ShoppingListActivity.class);
-//            startActivity(intent);
+            Intent intent = new Intent(this, ShoppingListActivity.class);
+            startActivity(intent);
         }
         if (id == R.id.action_favorites) {
             Intent intent = new Intent(this, SavedRecipeListActivity.class);

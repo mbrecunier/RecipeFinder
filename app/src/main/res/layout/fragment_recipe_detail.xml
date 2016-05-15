@@ -67,6 +67,21 @@
                     android:layout_marginBottom="10dp"
                     android:gravity="center" />
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Click ingredients to add to shopping list"
+                    android:id="@+id/instructionsTextView"
+                    android:drawableLeft="@drawable/ic_add_shopping_cart_white_18dp"
+                    android:drawablePadding="4dp"
+                    android:textColor="@color/colorTextIcons"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="10dp"
+                    android:gravity="center" />
+
+
+
                 <ListView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

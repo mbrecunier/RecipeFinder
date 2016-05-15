@@ -23,8 +23,6 @@ public class RecipeDetailActivity extends BaseActivity {
     private RecipePagerAdapter adapterViewPager;
     ArrayList<Recipe> mRecipes = new ArrayList<>();
 
-    private String[] ingredients = new String[] {"2 jalapeno peppers, cut in half lengthwise and seeded", "2 slices sourdough bread", "1 tablespoon butter, room temperature", "2 tablespoons cream cheese, room temperature", "1/2 cup jack and cheddar cheese, shredded", "1 tablespoon tortilla chips, crumbled" };
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,9 +34,5 @@ public class RecipeDetailActivity extends BaseActivity {
         mViewPager.setAdapter(adapterViewPager);
         mViewPager.setCurrentItem(startingPosition);
 
-//        mNameTextView.setText(recipeName);
-//
-//        ArrayAdapter ingredientsAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, ingredients);
-//        mIngredientListView.setAdapter(ingredientsAdapter);
     }
 }
