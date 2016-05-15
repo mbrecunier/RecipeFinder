@@ -29,7 +29,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     @Bind(R.id.findRecipesButton) Button mFindRecipesButton;
     @Bind(R.id.ingredient1EditText) EditText mIngredient1EditText;
     @Bind(R.id.ingredient2EditText) EditText mIngredient2EditText;
-    @Bind(R.id.savedRecipesButton) Button mSavedRecipesButton;
 
     private ValueEventListener mUserRefListener;
     private Firebase mUserRef;
@@ -44,7 +43,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         ButterKnife.bind(this);
 
         mFindRecipesButton.setOnClickListener(this);
-        mSavedRecipesButton.setOnClickListener(this);
 
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         mUId = mSharedPreferences.getString(Constants.KEY_UID, null);
@@ -75,10 +73,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 recipesIntent.putExtra("ingredient1", ingredient1);
                 recipesIntent.putExtra("ingredient2", ingredient2);
                 startActivity(recipesIntent);
-                break;
-            case R.id.savedRecipesButton:
-                Intent intent = new Intent(MainActivity.this, SavedRecipeListActivity.class);
-                startActivity(intent);
                 break;
             default:
                 break;
