@@ -21,7 +21,7 @@ public class Recipe {
         this.name = name;
         this.imageUrl = imageUrl;
         this.sourceUrl = sourceUrl;
-        this.ingredients = ingredients.replaceAll("\\[","").replaceAll("\\]","").split("\",\"");
+        this.ingredients = ingredients.replaceAll("\\[","").replaceAll("\\]","").replaceAll("\\\\","").split("\",\"");
     }
 
     public String getName() {
