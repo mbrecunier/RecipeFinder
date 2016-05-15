@@ -22,7 +22,7 @@ import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
 
-public class RecipeListActivity extends AppCompatActivity {
+public class RecipeListActivity extends BaseActivity {
     public static final String TAG = RecipeListActivity.class.getSimpleName();
     @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
     private RecipeListAdapter mAdapter;

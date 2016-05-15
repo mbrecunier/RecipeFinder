@@ -25,12 +25,12 @@ import com.firebase.client.ValueEventListener;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends BaseActivity implements View.OnClickListener {
     @Bind(R.id.findRecipesButton) Button mFindRecipesButton;
     @Bind(R.id.ingredient1EditText) EditText mIngredient1EditText;
     @Bind(R.id.ingredient2EditText) EditText mIngredient2EditText;
     @Bind(R.id.savedRecipesButton) Button mSavedRecipesButton;
-    private Firebase mFirebaseRef;
+
     private ValueEventListener mUserRefListener;
     private Firebase mUserRef;
     private String mUId;
@@ -42,8 +42,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-
-        mFirebaseRef = new Firebase(Constants.FIREBASE_URL);
 
         mFindRecipesButton.setOnClickListener(this);
         mSavedRecipesButton.setOnClickListener(this);
@@ -65,34 +63,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_main, menu);
-        return true;
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.action_logout) {
-            logout();
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    protected void logout() {
-        mFirebaseRef.unauth();
-        takeUserToLoginScreenOnUnAuth();
-    }
-
-    private void takeUserToLoginScreenOnUnAuth() {
-        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(intent);
-        finish();
-    }
 
     @Override
     public void onClick(View v) {

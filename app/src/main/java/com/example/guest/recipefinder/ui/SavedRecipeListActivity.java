@@ -17,7 +17,7 @@ import com.firebase.client.Query;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class SavedRecipeListActivity extends AppCompatActivity {
+public class SavedRecipeListActivity extends BaseActivity {
     private Query mQuery;
     private Firebase mFirebaseRecipesRef;
     private FirebaseRecipeListAdapter mAdapter;

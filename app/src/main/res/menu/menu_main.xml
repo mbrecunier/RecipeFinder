@@ -6,4 +6,22 @@
         android:title="Logout"
         android:visible="true"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/action_search"
+        android:icon="@drawable/ic_search_white_24dp"
+        app:showAsAction="always"
+        android:title="Search">
+    </item>
+    <item
+        android:id="@+id/action_shopping_list"
+        android:icon="@drawable/ic_shopping_cart_white_24dp"
+        app:showAsAction="always"
+        android:title="Shopping List">
+    </item>
+    <item
+        android:id="@+id/action_favorites"
+        android:icon="@drawable/ic_favorite_white_24dp"
+        app:showAsAction="always"
+        android:title="Favorites">
+    </item>
 </menu>
