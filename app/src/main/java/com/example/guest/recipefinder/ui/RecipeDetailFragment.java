@@ -75,7 +75,14 @@ public class RecipeDetailFragment extends Fragment implements View.OnClickListen
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-        Log.d("CLICKED ITEM", mRecipe.getIngredients()[i]);
+        String ingredient = mRecipe.getIngredients()[i];
+        saveIngredientToFirebase(ingredient);
+    }
+
+    public void saveIngredientToFirebase(String ingredient) {
+        Firebase ingredientRef = new Firebase(Constants.FIREBASE_URL_SHOPPING_LIST);
+        ingredientRef.push().setValue(ingredient);
+        Toast.makeText(getContext(), "Added", Toast.LENGTH_SHORT).show();
     }
 
     @Override
