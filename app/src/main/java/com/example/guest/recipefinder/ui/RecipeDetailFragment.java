@@ -80,7 +80,8 @@ public class RecipeDetailFragment extends Fragment implements View.OnClickListen
     }
 
     public void saveIngredientToFirebase(String ingredient) {
-        Firebase ingredientRef = new Firebase(Constants.FIREBASE_URL_SHOPPING_LIST);
+        String uID = mSharedPreferences.getString(Constants.KEY_UID, null);
+        Firebase ingredientRef = new Firebase(Constants.FIREBASE_URL_SHOPPING_LIST).child(uID);
         ingredientRef.push().setValue(ingredient);
         Toast.makeText(getContext(), "Added", Toast.LENGTH_SHORT).show();
     }
